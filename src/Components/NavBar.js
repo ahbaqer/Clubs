@@ -11,10 +11,10 @@ const NavBar = () => {
         <Link to="/clubs">
           <a>Clubs</a>
         </Link>
-        <Link>
+        <Link to="/players">
           <a>Players</a>
         </Link>
-        <Link>
+        <Link to="/leagues">
           <a>Leagues</a>
         </Link>
       </div>

@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
+import { Route, Switch } from "react-router";
 import NavBar from "./Components/NavBar";
 import Home from "./Components/Home";
-import Clubs from "./Components/Clubs/ClubsList";
+import ClubList from "./Components/Clubs/ClubList";
 
 function App() {
   return (
@@ -11,10 +12,13 @@ function App() {
         <NavBar />
       </div>
       <div>
-        <Home />
-      </div>
-      <div>
-        <Clubs />
+        <Switch>
+          <Home />
+
+          <Route path="/clubs">
+            <ClubList />
+          </Route>
+        </Switch>
       </div>
     </div>
   );
