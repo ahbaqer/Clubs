@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Route, Switch } from "react-router";
+import { useState } from "react";
 
 // import components
 import NavBar from "./Components/NavBar";
@@ -10,6 +11,8 @@ import ClubDetails from "./Components/Clubs/ClubDetails";
 import CreateClub from "./Components/Clubs/CreateClub";
 import LeagueList from "./Components/Leagues/LeagueList";
 import LeagueDetails from "./Components/Leagues/LeagueDetails";
+import clubStore from "./Stores/ClubStore";
+
 function App() {
   return (
     <div>
@@ -25,18 +28,18 @@ function App() {
           <Route exact path="/clubs">
             <ClubList />
           </Route>
-          <Route exact path="/clubs/manchester">
+          <Route exact path="/clubs/:id">
             <ClubDetails />
           </Route>
           <Route exact path="/create-club">
             <CreateClub />
-            // Leagues Components
-            <Route exact path="/leagues">
-              <LeagueList />
-            </Route>
           </Route>
-          <Route exact path="/league/EPL">
-            <ClubDetails />
+          // Leagues Components
+          <Route exact path="/leagues">
+            <LeagueList />
+          </Route>
+          <Route exact path="/leagues/EPL">
+            <LeagueDetails />
           </Route>
         </Switch>
       </div>

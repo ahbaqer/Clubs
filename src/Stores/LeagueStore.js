@@ -5,7 +5,7 @@ import React from "react";
 class LeagueStore {
   leagues = [];
   constructor() {
-    makeAutoObservable();
+    makeAutoObservable(this);
   }
 
   fetchLeagues = async () => {

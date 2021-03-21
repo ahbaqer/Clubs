@@ -1,22 +1,21 @@
 import { observer } from "mobx-react";
 import clubStore from "../../Stores/ClubStore";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch, Link, useParams } from "react-router-dom";
 
 const ClubDetails = () => {
-  const club = clubStore.clubs;
+  const { clubID } = useParams();
+  const foundClub = clubStore.clubs.filter((club) => club.id === +clubID);
+
   return (
     <>
       <div>
-        <h1>Manchester</h1>
-        <p>Outfit Color: Red</p>
-        <p>Location: Manchester</p>
-
-        <img
-          src="https://1000logos.net/wp-content/uploads/2017/03/Manchester-United-Logo-493x500.png"
-          alt="manchester logo"
-        />
         <p>update club details</p>
-        <p>Add New Player</p>
+        <div>
+          <p>{foundClub.name}</p>
+          <p>Outfit Color {foundClub.outfitColor}</p>
+          <p>Location{foundClub.location}</p>
+        </div>
+        ;<p>Add New Player</p>
       </div>
       <div>
         <h1>Players:</h1>

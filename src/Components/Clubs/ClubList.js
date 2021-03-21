@@ -4,21 +4,15 @@ import { Route, Link } from "react-router-dom";
 import ClubDetails from "./ClubDetails";
 
 const ClubList = () => {
-  return (
+  const clubList = clubStore.clubs.map((club) => (
     <div>
-      <Link to="/create-club">
-        <button>Add New Club</button>
+      <Link to={`/clubs/:${club.id}`}>
+        <p>{club.name}</p>
       </Link>
-      <h3>Clubs List:</h3>
-      <li>
-        <ul>
-          <Link to="/clubs/manchester">
-            <p>Manchester</p>
-          </Link>
-        </ul>
-      </li>
     </div>
-  );
+  ));
+
+  return <div>{clubList}</div>;
 };
 
 export default observer(ClubList);

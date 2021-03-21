@@ -6,17 +6,19 @@ import LeagueDetails from "./LeagueDetails";
 const LeagueList = () => {
   return (
     <div>
-      <Link to="/create-league">
-        <button>Add New league</button>
-      </Link>
-      <h3>leagues List:</h3>
-      <li>
-        <ul>
-          <Link to="/leagues/EPL">
-            <p>English Premier League</p>
-          </Link>
-        </ul>
-      </li>
+      <div>
+        <Link to="/create-league">
+          <button>Add New league</button>
+        </Link>
+        <h3>leagues List:</h3>
+        <li>
+          <ul>
+            <Link to="/leagues/EPL">
+              <p>English Premier League</p>
+            </Link>
+          </ul>
+        </li>
+      </div>
     </div>
   );
 };
