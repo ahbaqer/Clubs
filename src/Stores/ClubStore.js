@@ -19,7 +19,7 @@ class ClubStore {
 
   createClub = async (newClub) => {
     try {
-      const response = await axios.post("ttp://localhost:9000/clubs", newClub);
+      const response = await axios.post("http://localhost:9000/clubs", newClub);
       this.clubs.push(response.data);
     } catch (error) {
       console.log(error);
