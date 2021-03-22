@@ -11,7 +11,12 @@ const LeagueList = () => {
       </Link>
     </div>
   ));
-  return <div>{leagueList}</div>;
+  return (
+    <div>
+      <Link to="/create-league">Create New League</Link>
+      {leagueList}
+    </div>
+  );
 };
 
 export default observer(LeagueList);

@@ -5,16 +5,16 @@ import { Route, Switch, Link, useParams } from "react-router-dom";
 
 const LeagueDetails = () => {
   const { id } = useParams();
-  const foundLeague = leagueStore.leagues.filter((league) => league.id === +id);
-  const clubsFound = clubStore.clubs.filter((club) => club.leagueID === +id);
-  const clubList = clubsFound.map((club) => <li>{club.name}</li>);
+  const foundLeague = leagueStore.leagues.find((league) => league.id === +id);
+  const clubsFound = clubStore.clubs.find((club) => club.leagueID === +id);
+  // const clubList = clubsFound.map((club) => <li>{club.name}</li>);
   return (
     <>
       <div>
         <h1>{foundLeague.name}</h1>
         <p>region:{foundLeague.region}</p>
         <p>Prize:{foundLeague.prize}</p>
-        <p>Type: {foundLeague.type}</p>
+        <p>Type: {foundLeague.leagueType}</p>
       </div>
       <div>
         <h1>Teams:</h1>

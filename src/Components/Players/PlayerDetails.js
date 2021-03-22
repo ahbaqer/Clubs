@@ -4,7 +4,7 @@ import { Route, Switch, Link, useParams } from "react-router-dom";
 
 const PlayerDetails = () => {
   const { id } = useParams();
-  const foundPlayer = playerStore.players.filter((player) => player.id === +id);
+  const foundPlayer = playerStore.players.find((player) => player.id === +id);
   console.log(foundPlayer);
 
   return (

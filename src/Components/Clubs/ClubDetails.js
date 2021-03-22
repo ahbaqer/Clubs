@@ -5,13 +5,17 @@ import { Route, Switch, Link, useParams } from "react-router-dom";
 
 const ClubDetails = () => {
   const { id } = useParams();
-  const foundClub = clubStore.clubs.filter((club) => club.id === +id);
+  const foundClub = clubStore.clubs.find((club) => club.id === +id);
   console.log(id);
   console.log(foundClub);
   const playersFound = playerStore.players.filter(
     (player) => player.clubID === +id
   );
-  const playerList = playersFound.map((player) => <li>{player.name}</li>);
+  const playerList = playersFound.map((player) => (
+    <Link to={`/players/${player.id}`}>
+      <li>{player.name}</li>
+    </Link>
+  ));
   return (
     <>
       <div>
@@ -29,9 +33,7 @@ const ClubDetails = () => {
       </div>
       <div>
         <h1>Players:</h1>
-        <ul>
-          <playerList />
-        </ul>
+        <ul>{playerList}</ul>
       </div>
     </>
   );

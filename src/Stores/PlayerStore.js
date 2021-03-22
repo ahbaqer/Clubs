@@ -31,7 +31,7 @@ class PlayerStore {
 
   deletePlayer = async (playerId) => {
     try {
-      await axios.delete(`http://localhost:9000/players/:${playerId}`);
+      await axios.delete(`http://localhost:9000/players/${playerId}`);
       this.players = this.players.filter((player) => player.id !== +playerId);
     } catch (error) {
       console.log(error);
@@ -41,7 +41,7 @@ class PlayerStore {
   updatePlayer = async (updatedPlayer) => {
     try {
       await axios.put(
-        `http://localhost:9000/players/:${updatedPlayer.id}`,
+        `http://localhost:9000/players/${updatedPlayer.id}`,
         updatedPlayer
       );
       const player = this.players.find(
