@@ -31,7 +31,7 @@ class LeagueStore {
 
   deleteLeague = async (leagueId) => {
     try {
-      await axios.delete(`http://localhost:9000/leagues/:${leagueId}`);
+      await axios.delete(`http://localhost:9000/leagues/${leagueId}`);
       this.leagues = this.leagues.filter((league) => league.id !== +leagueId);
     } catch (error) {
       console.log(error);
@@ -41,7 +41,7 @@ class LeagueStore {
   updateLeague = async (updatedLeague) => {
     try {
       await axios.put(
-        `http://localhost:9000/leagues/:${updatedLeague.id}`,
+        `http://localhost:9000/leagues/${updatedLeague.id}`,
         updatedLeague
       );
       const league = this.leagues.find(

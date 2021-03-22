@@ -28,7 +28,7 @@ class ClubStore {
 
   deleteClub = async (clubId) => {
     try {
-      await axios.delete(`http://localhost:9000/clubs/:${clubId}`);
+      await axios.delete(`http://localhost:9000/clubs/${clubId}`);
       this.clubs = this.clubs.filter((club) => club.id !== +clubId);
     } catch (error) {
       console.log(error);
@@ -38,7 +38,7 @@ class ClubStore {
   updateClub = async (updatedClub) => {
     try {
       await axios.put(
-        `http://localhost:9000/clubs/:${updatedClub.id}`,
+        `http://localhost:9000/clubs/${updatedClub.id}`,
         updatedClub
       );
       const club = this.clubs.find((club) => club.id === updatedClub.id);

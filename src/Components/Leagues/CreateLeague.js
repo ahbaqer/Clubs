@@ -6,8 +6,8 @@ const CreateLeague = () => {
   const [newLeague, setNewLeague] = useState({
     name: "",
     region: "",
+    prize: "",
     leagueType: "",
-    prize: 0,
   });
   const handleSubmit = (event) => {
     event.preventDefault();
