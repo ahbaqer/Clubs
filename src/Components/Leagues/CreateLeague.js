@@ -3,7 +3,7 @@ import { useImperativeHandle, useState } from "react";
 const CreateLeague = () => {
   const [newLeague, setNewLeague] = useState([null]);
   const handleChange = (event) => {
-    setNewClub({ ...newClub, [event.target.name]: event.target.value });
+    setNewLeague({ ...newLeague, [event.target.name]: event.target.value });
   };
   return (
     <div>

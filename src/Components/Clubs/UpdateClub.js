@@ -1,4 +1,5 @@
 import clubStore from "../../Stores/ClubStore";
+import { observer } from "mobx-react";
 import { useImperativeHandle, useState } from "react";
 const UpdateClub = () => {
   const [newClub, setNewClub] = useState([null]);
@@ -45,4 +46,4 @@ const UpdateClub = () => {
   );
 };
 
-export default UpdateClub;
+export default observer(UpdateClub);

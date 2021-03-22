@@ -5,7 +5,7 @@ import React from "react";
 class PlayerStore {
   players = [];
   constructor() {
-    makeAutoObservable();
+    makeAutoObservable(this);
   }
 
   fetchPlayers = async () => {
