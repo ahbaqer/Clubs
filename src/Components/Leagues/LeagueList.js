@@ -3,20 +3,38 @@ import { observer } from "mobx-react";
 import { Route, Link } from "react-router-dom";
 import LeagueDetails from "./LeagueDetails";
 import DeleteLeagueButton from "./DeleteLeagueButton";
+import {
+  CardButton,
+  CardWrapper,
+  CardHeading,
+  CardHeader,
+  CardFieldset,
+  CardLink,
+} from "../Styles/Styles";
 
 const LeagueList = () => {
   const leagueList = leagueStore.leagues.map((league) => (
     <div>
       <Link to={`/leagues/${league.id}`}>
-        <p>{league.name}</p>
+        <CardWrapper>
+          <CardHeader>
+            <CardHeading>{league.name}</CardHeading>
+          </CardHeader>
+        </CardWrapper>
       </Link>
-      <DeleteLeagueButton leagueID={league.id} />
+      <CardFieldset>
+        <CardLink>
+          <DeleteLeagueButton leagueID={league.id} />
+        </CardLink>
+      </CardFieldset>
     </div>
   ));
   return (
     <div>
-      <Link to="/create-league">Create New League</Link>
       {leagueList}
+      <Link to="/create-league">
+        <CardButton>+ New League</CardButton>
+      </Link>
     </div>
   );
 };

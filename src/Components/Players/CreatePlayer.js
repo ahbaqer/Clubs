@@ -2,6 +2,22 @@ import playerStore from "../../Stores/PlayerStore";
 import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 import { useImperativeHandle, useState } from "react";
+import {
+  CardWrapper,
+  CardHeader,
+  CardHeading,
+  CardBody,
+  CardIcon,
+  CardFieldset,
+  CardInput,
+  CardOptionsItem,
+  CardOptions,
+  CardOptionsNote,
+  CardButton,
+  CardLink,
+  CardButtonn,
+} from "../Styles/Styles";
+
 const CreatePlayer = () => {
   const [newPlayer, setNewPlayer] = useState({
     name: "",
@@ -20,43 +36,56 @@ const CreatePlayer = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <h1>Create Player Page</h1>
-        <label>Name:</label>
-        <input
-          type="text"
-          name="name"
-          onChange={handleChange}
-          placeholder="Enter Player Name"
-        ></input>
-        <br />
-        <label>Position:</label>
-        <input
-          type="text"
-          name="position"
-          onChange={handleChange}
-          placeholder="Enter Player Position"
-        ></input>
-        <br />
-        <label>Age:</label>
-        <input
-          type="text"
-          name="age"
-          onChange={handleChange}
-          placeholder="Enter Player Age"
-        ></input>
-        <br />
-        <label>Club:</label>
-        <input
-          type="text"
-          name="club"
-          onChange={handleChange}
-          placeholder="Enter Player's Club Name"
-        ></input>
-        <br />
+        <CardWrapper>
+          <CardBody>
+            <CardHeader>
+              <CardHeading>Create Player Page</CardHeading>
+            </CardHeader>
 
-        <button onClick={() => playerStore.createPlayer(newPlayer)}>
-          Submit
-        </button>
+            <CardFieldset>
+              <CardInput
+                type="text"
+                name="name"
+                onChange={handleChange}
+                placeholder="Enter Player Name"
+              ></CardInput>
+            </CardFieldset>
+            <br />
+            <CardFieldset>
+              <CardInput
+                type="text"
+                name="position"
+                onChange={handleChange}
+                placeholder="Enter Player Position"
+              ></CardInput>
+            </CardFieldset>
+            <br />
+            <CardFieldset>
+              <CardInput
+                type="text"
+                name="age"
+                onChange={handleChange}
+                placeholder="Enter Player Age"
+              ></CardInput>
+            </CardFieldset>
+            <br />
+            <CardFieldset>
+              <CardInput
+                type="text"
+                name="club"
+                onChange={handleChange}
+                placeholder="Enter Player's Club Name"
+              ></CardInput>
+            </CardFieldset>
+            <br />
+
+            <CardFieldset>
+              <CardButtonn onClick={() => playerStore.createPlayer(newPlayer)}>
+                Submit
+              </CardButtonn>
+            </CardFieldset>
+          </CardBody>
+        </CardWrapper>
       </div>
     </form>
   );

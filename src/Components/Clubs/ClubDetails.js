@@ -2,6 +2,16 @@ import { observer } from "mobx-react";
 import clubStore from "../../Stores/ClubStore";
 import playerStore from "../../Stores/PlayerStore";
 import { Route, Switch, Link, useParams } from "react-router-dom";
+import {
+  CardWrapper,
+  CardFieldset,
+  CardLink,
+  Names,
+  Name,
+  CardImg,
+  CardButton,
+  CardOptions,
+} from "../Styles/Styles";
 
 const ClubDetails = () => {
   const { id } = useParams();
@@ -19,21 +29,33 @@ const ClubDetails = () => {
   return (
     <>
       <div>
-        <Link to={`/clubs/${id}/update`}>
-          <p>update club details</p>
-        </Link>
-        <div>
-          <p>{foundClub.name}</p>
-          <p>Outfit Color {foundClub.outfitColor}</p>
-          <p>Location{foundClub.location}</p>
-        </div>
-        <Link to="/create-player">
-          <p>Add New Player</p>
-        </Link>
+        <CardWrapper>
+          <div>
+            <Name>{foundClub.name}</Name>
+            <p>Outfit Color : {foundClub.outfitColor}</p>
+            <p>Location : {foundClub.location}</p>
+            <CardWrapper>
+              <CardImg>
+                <img src={foundClub.logo} alt={foundClub.name} />
+              </CardImg>
+            </CardWrapper>
+          </div>
+        </CardWrapper>
       </div>
+      <CardFieldset>
+        <CardLink>
+          <Link to={`/clubs/${id}/update`}>
+            <p>Update Club Details</p>
+          </Link>
+        </CardLink>
+      </CardFieldset>
+
       <div>
-        <h1>Players:</h1>
-        <ul>{playerList}</ul>
+        <Names>Players</Names>
+        <h2>{playerList}</h2>
+        <Link to="/create-player">
+          <CardButton>Add New Player</CardButton>
+        </Link>
       </div>
     </>
   );

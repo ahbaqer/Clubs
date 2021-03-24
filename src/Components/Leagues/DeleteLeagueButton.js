@@ -1,12 +1,19 @@
 import { observer } from "mobx-react";
 import leagueStore from "../../Stores/LeagueStore";
+import { CardOptions, CardOptionsItem, CardIcon } from "../Styles/Styles";
 
 const DeleteLeagueButton = (props) => {
   return (
-    <button onClick={() => leagueStore.deleteLeague(props.leagueID)}>
-      {" "}
-      Delete League
-    </button>
+    <div>
+      <CardOptions>
+        <CardOptionsItem>
+          <CardIcon onClick={() => leagueStore.deleteLeague(props.leagueID)}>
+            {" "}
+            Delete League
+          </CardIcon>
+        </CardOptionsItem>
+      </CardOptions>
+    </div>
   );
 };
 export default observer(DeleteLeagueButton);

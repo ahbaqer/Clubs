@@ -1,4 +1,4 @@
-import { Switch, Route } from "react-router";
+import { Switch, Route } from "react-router-dom";
 import ClubList from "./ClubList";
 import ClubDetails from "./ClubDetails";
 import CreateClub from "./CreateClub";
